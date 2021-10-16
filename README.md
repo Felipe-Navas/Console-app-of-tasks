@@ -5,17 +5,20 @@ This README would normally document whatever steps are necessary to get your app
 ### What is this repository for? ###
 
 * Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+    * A simple console App to manage tasks
+* Version: 1.0
+* [Author](https://www.linkedin.com/in/felipenavaslederhos)
 
 ### How do I get set up? ###
 
 * Summary of set up
-* Configuration
+    * npm install
+* How to run the app?
+    * node app
 * Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+    * "colors": "^1.4.0"
+    * "inquirer": "^7.3.3"
+    * "uuid": "^8.3.2"
 
 ### Contribution guidelines ###
 
