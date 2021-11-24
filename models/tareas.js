@@ -70,7 +70,6 @@ class Tareas {
                     console.log(`${ (contador + '.').green } ${ desc } :: ${ estado }`);
                 };
             };
-
         });     
     };
 
@@ -84,6 +83,13 @@ class Tareas {
             if ( !ids.includes(tarea.id) ) this._listado[tarea.id].completadoEn = null;
         });
     };
+
+    modificarTarea( idModif = '', descModif = '' ) {
+        if ( this._listado[idModif] ) {
+            this._listado[idModif].desc = descModif;
+        };
+    };
 };
+
 
 module.exports = Tareas;

@@ -4,6 +4,7 @@ require('colors');
 const preguntas = [
     {
         type: 'list',
+        pageSize: 8,
         name: 'opcion',
         message: '¿Qué desea hacer?',
         choices: [
@@ -32,10 +33,13 @@ const preguntas = [
                 name: `${ '6.'.green } Borrar tarea`,
             },
             {
+                value: '7',
+                name: `${ '7.'.green } Modificar tarea`,
+            },
+            {
                 value: '0',
                 name: `${ '0.'.green } Salir`,
             },
-            
         ],
     },
 ];
@@ -81,7 +85,7 @@ const leerInput = async( message ) => {
     return desc;
 };
 
-const listadoTareasBorrar = async( tareas = [] ) => {
+const listadoTareas = async( tareas = [] ) => {
 
     const choices = tareas.map( (tarea, i) => {
 
@@ -150,11 +154,12 @@ const mostrarListadoChecklist = async( tareas = [] ) => {
     return ids;
 };
 
+
 module.exports = {
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar,
+    listadoTareas,
     confirmar,
     mostrarListadoChecklist
 };

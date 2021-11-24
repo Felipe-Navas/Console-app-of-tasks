@@ -4,7 +4,7 @@ const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
 const { inquirerMenu, 
         pausa,
         leerInput,
-        listadoTareasBorrar,
+        listadoTareas,
         confirmar,
         mostrarListadoChecklist
 } = require('./helpers/inquirer');
@@ -26,8 +26,12 @@ const main = async() => {
 
         switch (option) {
             case '1': // Crear tarea
-                const desc = await leerInput( 'Descripción:' );
-                tareas.crearTarea( desc );
+                const desc = await leerInput( 'Descripción (Ingresar 0 para volver):' );
+                
+                // Si ingresa '0' no guarda la tarea y vuelve al menu anterior
+                if ( desc !== '0') {
+                    tareas.crearTarea( desc );
+                };
             break;
 
             case '2': // Listar todas las tareas
@@ -48,7 +52,7 @@ const main = async() => {
             break;
                        
             case '6': // Borrar Tarea
-                const id = await listadoTareasBorrar( tareas.listadoArr );
+                const id = await listadoTareas( tareas.listadoArr );
                 if ( id !== '0' ) {
                     const ok = await confirmar( '¿Está seguro?' );
                     if ( ok ) {
@@ -57,6 +61,21 @@ const main = async() => {
                     };
                 };
             break;
+            
+            case '7': // Modificar Tarea
+                const idModif = await listadoTareas( tareas.listadoArr );
+
+                // Si ingresa '0' vuelve al menu anterior
+                if ( idModif == '0') {
+                    break;
+                };
+                const descModif = await leerInput( 'Descripción (Ingresar 0 para volver):' );
+                
+                // Si ingresa '0' no guarda la tarea y vuelve al menu anterior
+                if ( descModif !== '0') {
+                    tareas.modificarTarea( idModif, descModif );
+                };
+                break;
         };
 
         guardarDB( tareas.listadoArr );
