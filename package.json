@@ -9,10 +9,18 @@
   },
   "keywords": [],
   "author": "Felipe Navas",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "colors": "^1.4.0",
     "inquirer": "^7.3.3",
     "uuid": "^8.3.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felipe-Navas/console-app-of-tasks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Felipe-Navas/console-app-of-tasks/issues"
+  },
+  "homepage": "https://github.com/Felipe-Navas/console-app-of-tasks#readme"
 }
